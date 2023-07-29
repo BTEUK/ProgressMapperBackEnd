@@ -1,2 +1,2 @@
-# ProgressMapper
-A plugin which can be used to update the BTE UK progress map
+# ProgressMapper Back End
+A library used to handle the updates of BTE UK's MapHub progress map.
