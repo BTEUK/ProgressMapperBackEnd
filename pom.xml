@@ -6,7 +6,7 @@
 
     <groupId>me.bteuk</groupId>
     <artifactId>ProgressMapperBackEnd</artifactId>
-A    <version>1.0.0-prealpha</version>
+    <version>1.0.0-prealpha</version>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
