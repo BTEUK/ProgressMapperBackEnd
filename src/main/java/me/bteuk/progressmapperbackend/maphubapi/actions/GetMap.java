@@ -10,12 +10,12 @@ import java.util.HashMap;
 
 public class GetMap
 {
-    public String toString() {
+    public String toString()
+    {
         return "Student [ id: "+id+", url: "+ url+ " ]";
     }
 
     private static final String szEndpointURL = "https://maphub.net/api/1/map/get";
-
     private int id;
     private String url;
     private String owner;
@@ -23,7 +23,6 @@ public class GetMap
     private String title;
     private String visibility; //One of public, unlisted, private, select
     private Geojson geojson;
-    private String[] groups; //Each group has a title and id.
     private String[] markers;
     private HashMap properties;
     private String description;
@@ -35,11 +34,9 @@ public class GetMap
     private String modified_date;
     private String[] images; //A list of IDs
 
-
-    public static void main (String[] args)
+    public Geojson getGeojson()
     {
-        Gson gson = new Gson();
-        gson.fromJson("dd", GetMap.class);
+        return geojson;
     }
 
     public static GetMap getMap(String szApiKey, int iMapID)
@@ -47,9 +44,11 @@ public class GetMap
         Gson gson = new Gson();
 
         String szJson = getMapRawResponse(szApiKey, iMapID);
-        System.out.println("String from GetMap response: " +szJson);
 
-        GetMap getMap = gson.fromJson(szJson, GetMap.class);
+        //Changes the 3D arrays for coordinates into 2D arrays
+        String szEditedToChange3DArraysTo2D = szJson.replace("[[[", "[[").replace("]]]", "]]");
+
+        GetMap getMap = gson.fromJson(szEditedToChange3DArraysTo2D, GetMap.class);
         return getMap;
     }
 
