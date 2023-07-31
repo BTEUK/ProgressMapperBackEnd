@@ -68,9 +68,9 @@ public class Update
         szRequestArgs = szArgsNew;
 
         //Makes the request
-        MapHubAPIResponse listMapsResponse = MapHubAPIHandler.request(szApiKey, szEndpointURL, szRequestArgs);
-        assert listMapsResponse != null;
-        return listMapsResponse.getStringContent();
+        MapHubAPIResponse updateMapResponse = MapHubAPIHandler.request(szApiKey, szEndpointURL, szRequestArgs, new String[0][2]);
+        assert updateMapResponse != null;
+        return updateMapResponse.getStringContent();
     }
 }
 

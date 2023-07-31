@@ -20,7 +20,7 @@ public class ListMaps
 
     public static String listMapsRawResponse(String szApiKey)
     {
-        MapHubAPIResponse listMapsResponse = MapHubAPIHandler.request(szApiKey, szEndpointURL, "");
+        MapHubAPIResponse listMapsResponse = MapHubAPIHandler.request(szApiKey, szEndpointURL, "", new String[0][2]);
         assert listMapsResponse != null;
         return listMapsResponse.getStringContent();
     }

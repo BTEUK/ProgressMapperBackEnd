@@ -18,7 +18,7 @@ public class Refresh
         String szRequestArgs = gson.toJson(requestArgs);
 
         //Makes the request
-        MapHubAPIResponse listMapsResponse = MapHubAPIHandler.request(szApiKey, szEndpointURL, szRequestArgs);
+        MapHubAPIResponse listMapsResponse = MapHubAPIHandler.request(szApiKey, szEndpointURL, szRequestArgs, new String[0][2]);
         assert listMapsResponse != null;
         return listMapsResponse.getStringContent();
     }
