@@ -2,6 +2,12 @@ package me.bteuk.progressmapperbackend.maphubapi.maphubobjects;
 
 public class Geometry
 {
-    String type;
+    GeometryType type;
     public double[][] coordinates;
+
+    public Geometry(GeometryType type)
+    {
+        this.type = type;
+    }
 }
+

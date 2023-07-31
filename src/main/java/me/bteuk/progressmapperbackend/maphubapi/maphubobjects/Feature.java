@@ -16,4 +16,11 @@ public class Feature
     {
         return geometry;
     }
+
+    public Feature(Geometry geometry, Properties properties)
+    {
+        this.type = "Feature";
+        this.geometry = geometry;
+        this.properties = properties;
+    }
 }

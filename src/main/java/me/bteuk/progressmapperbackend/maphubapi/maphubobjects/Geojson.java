@@ -16,4 +16,23 @@ public class Geojson
     {
         return features;
     }
+
+    public Group[] getGroups()
+    {
+        return groups;
+    }
+
+    //Used for append - but should it be? Would type and groups etc then show up as null. Don't we need a different one?
+    public Geojson(Feature[] features)
+    {
+        this.type = "FeatureCollection";
+        this.features = features;
+    }
+
+    public Geojson(Feature[] features, Group[] groups)
+    {
+        this.type = "FeatureCollection";
+        this.features = features;
+        this.groups = groups;
+    }
 }
