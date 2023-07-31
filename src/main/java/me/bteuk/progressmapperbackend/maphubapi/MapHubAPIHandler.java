@@ -44,7 +44,7 @@ public class MapHubAPIHandler
 
         //Prints out the request json
         System.out.println("POST Request entity (json):");
-        System.out.println(szEndpointUrl);
+        System.out.println(szRequestArgs);
 
         try
         {
