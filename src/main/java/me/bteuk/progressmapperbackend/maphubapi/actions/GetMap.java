@@ -28,7 +28,7 @@ public class GetMap
     private String description;
     private String basemap;
     private boolean collaborate;
-    private String[] viewer_users;
+    private User[] viewer_users;
     private User[] editor_users; //Each user has a username
     private String created_date;
     private String modified_date;
@@ -62,9 +62,9 @@ public class GetMap
         String szRequestArgs = gson.toJson(requestArgs);
 
         //Makes the request
-        MapHubAPIResponse listMapsResponse = MapHubAPIHandler.request(szApiKey, szEndpointURL, szRequestArgs);
-        assert listMapsResponse != null;
-        return listMapsResponse.getStringContent();
+        MapHubAPIResponse getMapReponse = MapHubAPIHandler.request(szApiKey, szEndpointURL, szRequestArgs, new String[0][2]);
+        assert getMapReponse != null;
+        return getMapReponse.getStringContent();
     }
 }
 
