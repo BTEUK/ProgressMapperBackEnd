@@ -1,8 +1,7 @@
 package me.bteuk.progressmapperbackend.maphubapi.maphubobjects;
 
-public class Geometry
+public class Group
 {
-    String type;
-
-    double[][] coordinates;
+    String title;
+    long id;
 }
