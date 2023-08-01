@@ -17,6 +17,11 @@ public class Feature
         return geometry;
     }
 
+    public long getID()
+    {
+        return id;
+    }
+
     public Feature(Geometry geometry, Properties properties)
     {
         this.type = "Feature";
