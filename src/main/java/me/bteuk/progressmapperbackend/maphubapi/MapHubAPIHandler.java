@@ -17,7 +17,7 @@ public class MapHubAPIHandler
     //MapHub API uses HTTP POST requests with JSON arguments and JSON responses.
     //Request authentication is via API keys using the Authorization: Token <api_key> request header.
 
-    public static MapHubAPIResponse request(String szApiKey, String szEndpointUrl, String szRequestArgs, String[][] headers)
+    public static MapHubAPIResponse request(String szApiKey, String szEndpointUrl, String szRequestArgs, String[][] headers, boolean bPrintJson)
     {
         //Creates the client object
         CloseableHttpClient httpClient = HttpClients.createDefault();
@@ -48,8 +48,11 @@ public class MapHubAPIHandler
         System.out.println("End of headers");
 
         //Prints out the request json
-        System.out.println("\nPOST Request entity (json):");
-        System.out.println(szRequestArgs);
+        if (bPrintJson)
+        {
+            System.out.println("\nPOST Request entity (json):");
+            System.out.println(szRequestArgs);
+        }
 
         try
         {

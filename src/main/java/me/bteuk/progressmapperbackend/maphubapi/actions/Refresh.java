@@ -8,7 +8,7 @@ public class Refresh
 {
     private static final String szEndpointURL = "https://maphub.net/api/1/map/refresh_image";
 
-    public static String refreshMapImage(String szApiKey, int iMapID)
+    public static String refreshMapImage(String szApiKey, int iMapID, boolean bPrintJson)
     {
         //Creates the requestArgs object
         RefreshMapRequestArgs requestArgs = new RefreshMapRequestArgs(iMapID);
@@ -18,7 +18,7 @@ public class Refresh
         String szRequestArgs = gson.toJson(requestArgs);
 
         //Makes the request
-        MapHubAPIResponse listMapsResponse = MapHubAPIHandler.request(szApiKey, szEndpointURL, szRequestArgs, new String[0][2]);
+        MapHubAPIResponse listMapsResponse = MapHubAPIHandler.request(szApiKey, szEndpointURL, szRequestArgs, new String[0][2], bPrintJson);
         assert listMapsResponse != null;
         return listMapsResponse.getStringContent();
     }

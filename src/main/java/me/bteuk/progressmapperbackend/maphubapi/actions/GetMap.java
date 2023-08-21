@@ -39,11 +39,11 @@ public class GetMap
         return geojson;
     }
 
-    public static GetMap getMap(String szApiKey, int iMapID)
+    public static GetMap getMap(String szApiKey, int iMapID, boolean bPrintJson)
     {
         Gson gson = new Gson();
 
-        String szJson = getMapRawResponse(szApiKey, iMapID);
+        String szJson = getMapRawResponse(szApiKey, iMapID, bPrintJson);
 
         //Changes the 3D arrays for coordinates into 2D arrays
         String szEditedToChange3DArraysTo2D = szJson.replace("[[[", "[[").replace("]]]", "]]");
@@ -52,7 +52,7 @@ public class GetMap
         return getMap;
     }
 
-    private static String getMapRawResponse(String szApiKey, int iMapID)
+    private static String getMapRawResponse(String szApiKey, int iMapID, boolean bPrintJson)
     {
         //Creates the requestArgs object
         GetMapRequestArgs requestArgs = new GetMapRequestArgs(iMapID);
@@ -62,7 +62,7 @@ public class GetMap
         String szRequestArgs = gson.toJson(requestArgs);
 
         //Makes the request
-        MapHubAPIResponse getMapReponse = MapHubAPIHandler.request(szApiKey, szEndpointURL, szRequestArgs, new String[0][2]);
+        MapHubAPIResponse getMapReponse = MapHubAPIHandler.request(szApiKey, szEndpointURL, szRequestArgs, new String[0][2], bPrintJson);
         assert getMapReponse != null;
         return getMapReponse.getStringContent();
     }

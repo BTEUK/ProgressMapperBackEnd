@@ -9,7 +9,7 @@ public class Append
 {
     private static final String szEndpointURL = "https://maphub.net/api/1/map/append";
 
-    public static String sendMapAppend(String szApiKey, int iMapID, Geojson mapData)
+    public static String sendMapAppend(String szApiKey, int iMapID, Geojson mapData, boolean bPrintJson)
     {
         //The request args are just a geojson
 
@@ -84,7 +84,7 @@ public class Append
         headers[0][1] = szValueMapHubAPIArg;
 
         //Makes the request
-        MapHubAPIResponse appendMapResponse = MapHubAPIHandler.request(szApiKey, szEndpointURL, szRequestArgs, headers);
+        MapHubAPIResponse appendMapResponse = MapHubAPIHandler.request(szApiKey, szEndpointURL, szRequestArgs, headers, bPrintJson);
         assert appendMapResponse != null;
         return appendMapResponse.getStringContent();
     }

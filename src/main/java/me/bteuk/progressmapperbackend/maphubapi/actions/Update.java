@@ -9,7 +9,7 @@ public class Update
 {
     private static final String szEndpointURL = "https://maphub.net/api/1/map/update";
 
-    public static String sendMapUpdate(String szApiKey, int iMapID, Geojson mapData)
+    public static String sendMapUpdate(String szApiKey, int iMapID, Geojson mapData, boolean bPrintJson)
     {
         //Creates the requestArgs object
         UpdateMapRequestArgs requestArgs = new UpdateMapRequestArgs(iMapID, mapData);
@@ -68,7 +68,7 @@ public class Update
         szRequestArgs = szArgsNew;
 
         //Makes the request
-        MapHubAPIResponse updateMapResponse = MapHubAPIHandler.request(szApiKey, szEndpointURL, szRequestArgs, new String[0][2]);
+        MapHubAPIResponse updateMapResponse = MapHubAPIHandler.request(szApiKey, szEndpointURL, szRequestArgs, new String[0][2], bPrintJson);
         assert updateMapResponse != null;
         return updateMapResponse.getStringContent();
     }
