@@ -40,9 +40,13 @@ public class Properties
 
     public Properties(String fill, String title, String description)
     {
-        this.group = 0;
         this.fill = fill;
         this.title = title;
         this.description = description;
+    }
+
+    public void setGroup(int iGroupID)
+    {
+        this.group = iGroupID;
     }
 }

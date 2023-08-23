@@ -8,6 +8,7 @@ public class Geometry
     public Geometry(GeometryType type)
     {
         this.type = type;
+        this.coordinates = new double[0][2];
     }
 
     public GeometryType getType()

@@ -28,4 +28,11 @@ public class Feature
         this.geometry = geometry;
         this.properties = properties;
     }
+
+    public Feature(GeometryType geometryType, String szFill, String szTitle, String szDescription)
+    {
+        this.type = "Feature";
+        this.geometry = new Geometry(geometryType);
+        this.properties = new Properties(szFill, szTitle, szDescription);
+    }
 }
